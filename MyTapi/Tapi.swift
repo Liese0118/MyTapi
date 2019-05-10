@@ -14,6 +14,7 @@ final class Tapi: Object {
 
     @objc dynamic var id = 0
     @objc dynamic var tapiName: String = ""
+    @objc dynamic var tapiComment: String = ""
     @objc dynamic private var _tapiImage: UIImage? = nil
     @objc dynamic var tapiImage: UIImage? {
         set {
@@ -23,11 +24,11 @@ final class Tapi: Object {
             }
         }
         get {
-            if let image = self._Image {
+            if let image = self._tapiImage {
                 return image
             }
             
-            if let data = self.bookImageData {
+            if let data = self.tapiImageData {
                 self._tapiImage = UIImage(data: data)
                 return self._tapiImage
             }

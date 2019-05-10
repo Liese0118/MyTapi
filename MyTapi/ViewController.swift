@@ -50,9 +50,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     //cellの中身をセット
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as!
+            CustomCollectionViewCell
         
-        cell.nameLabel.text = String(tapis[indexPath.row].name)
         cell.imageView.image = tapis[indexPath.row].tapiImage
         return cell
     }

@@ -18,29 +18,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjQ-Nl-cYG">
-                                <rect key="frame" x="261" y="679" width="97" height="97"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2fm-BU-Hpu">
+                                <rect key="frame" x="0.0" y="44" width="375" height="652"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="プラスボタン.png"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3YG-2L-6Id">
+                                    <size key="itemSize" width="121" height="121"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="95I-Op-O73">
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rm-aQ-Vu0">
+                                <rect key="frame" x="278" y="725" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
                             </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O5p-Hq-dm8">
-                                <rect key="frame" x="0.0" y="82" width="375" height="730"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="PXn-tb-Veb" kind="presentation" id="4LD-hY-4R7"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="addButton" destination="O5p-Hq-dm8" id="jFx-MM-H8w"/>
+                        <outlet property="addButton" destination="7rm-aQ-Vu0" id="Xhs-ee-XPR"/>
+                        <outlet property="collectionView" destination="2fm-BU-Hpu" id="un6-fk-4a7"/>
+                        <segue destination="CBD-kE-yZb" kind="show" id="esM-KF-jgH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.40000000000001" y="115.27093596059113"/>
+            <point key="canvasLocation" x="-137" y="825"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="v7B-Gm-HnD">
@@ -54,7 +70,7 @@
                                 <rect key="frame" x="0.0" y="33" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="loY-We-v9d">
+                                    <navigationItem title="Myタピ" id="loY-We-v9d">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;CANCEL" id="Wrh-0n-UTZ"/>
                                         <barButtonItem key="rightBarButtonItem" title="SAVE" id="bFa-Ub-BNM">
                                             <connections>
@@ -164,40 +180,6 @@
             </objects>
             <point key="canvasLocation" x="1112.8" y="117.48768472906404"/>
         </scene>
-        <!--Collection View Controller-->
-        <scene sceneID="kME-GX-Aor">
-            <objects>
-                <collectionViewController id="Ode-UB-zqR" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="usx-Jk-IS4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kce-NY-Z6d">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VFJ-Te-tmK">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="Ode-UB-zqR" id="hZ8-k4-34L"/>
-                            <outlet property="delegate" destination="Ode-UB-zqR" id="jSt-EA-Q1j"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="z6b-gg-0hP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="90" y="825"/>
-        </scene>
         <!--Detail View Controller-->
         <scene sceneID="Nfm-hX-d58">
             <objects>
@@ -214,7 +196,7 @@
                                 <rect key="frame" x="0.0" y="33" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="BGa-ru-g4A">
+                                    <navigationItem title="Myタピ" id="BGa-ru-g4A">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;HOME" id="zNQ-ch-8RF"/>
                                         <barButtonItem key="rightBarButtonItem" id="Opt-XH-WuF"/>
                                     </navigationItem>
@@ -259,20 +241,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EnU-Zb-Qgl">
-                                <rect key="frame" x="16" y="559" width="49" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Cqa-Pe-Ff8"/>
                     </view>
                     <connections>
+                        <outlet property="commentLabel" destination="YUI-Ye-4CC" id="qD9-Ec-jqJ"/>
                         <outlet property="homeButton" destination="zNQ-ch-8RF" id="dge-KC-Qoq"/>
-                        <outlet property="iceLabel" destination="gXb-fY-swG" id="ahy-vR-2aW"/>
                         <outlet property="image" destination="PP3-RW-q1i" id="VZF-2m-6MT"/>
                         <outlet property="nameLabel" destination="ZGm-R5-AN8" id="DGx-xi-x6B"/>
-                        <outlet property="sweetnessLabel" destination="w2S-82-xWQ" id="Z6L-0k-zUH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itf-y9-jhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -282,6 +259,5 @@
     </scenes>
     <resources>
         <image name="likeButton.png" width="352.5" height="352.5"/>
-        <image name="プラスボタン.png" width="491.51998901367188" height="491.51998901367188"/>
     </resources>
 </document>

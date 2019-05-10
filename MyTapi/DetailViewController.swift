@@ -9,19 +9,34 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    @IBOutlet var homeButton: UIBUtton!
+    @IBOutlet var homeButton: UIButton!
     @IBOutlet var image: UIImageView!
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var sweetnessLabel: UILabel!
-    @IBOutlet var iceLabel: UILabel!
+//    @IBOutlet var sweetnessLabel: UILabel!
+//    @IBOutlet var iceLabel: UILabel!
     @IBAction func editButton(){}
     @IBAction func delateButton(){}
+    @IBOutlet var commentLabel: UILabel!
+    
+    var tapiArray: [Tapi]!
+    var number: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tapiArray = Tapi.loadAll()
+        setUpDetail()
         // Do any additional setup after loading the view.
     }
+}
+extension DetailViewController {
+    
+    func setUpDetail() {
+        image.image = tapiArray[number].tapiImage
+        nameLabel.text = tapiArray[number].tapiName
+        commentLabel.text = tapiArray[number].tapiComment
+    }
+}
+
     
 
     /*
@@ -34,4 +49,3 @@ class DetailViewController: UIViewController {
     }
     */
 
-}
