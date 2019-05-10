@@ -121,41 +121,26 @@
                                 <rect key="frame" x="16" y="472" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="likeButton.png"/>
-                                <connections>
-                                    <action selector="like1" destination="PXn-tb-Veb" eventType="touchUpInside" id="wWJ-vV-FlC"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zk1-p9-HMq">
                                 <rect key="frame" x="68" y="472" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="likeButton.png"/>
-                                <connections>
-                                    <action selector="like2" destination="PXn-tb-Veb" eventType="touchUpInside" id="kcj-Ln-Knh"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKO-Hr-yMR">
                                 <rect key="frame" x="120" y="472" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="likeButton.png"/>
-                                <connections>
-                                    <action selector="like3" destination="PXn-tb-Veb" eventType="touchUpInside" id="GvT-lT-nak"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R24-Y1-ICv">
                                 <rect key="frame" x="172" y="472" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="likeButton.png"/>
-                                <connections>
-                                    <action selector="like4" destination="PXn-tb-Veb" eventType="touchUpInside" id="aSt-RI-Eh1"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDA-cS-lgV">
                                 <rect key="frame" x="224" y="472" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="likeButton.png"/>
-                                <connections>
-                                    <action selector="like5" destination="PXn-tb-Veb" eventType="touchUpInside" id="9vY-8S-rer"/>
-                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6HC-2M-Z9d">
                                 <rect key="frame" x="16" y="635" width="343" height="143"/>
@@ -169,10 +154,7 @@
                         <viewLayoutGuide key="safeArea" id="shu-dQ-5f7"/>
                     </view>
                     <connections>
-                        <outlet property="commentTextView" destination="6HC-2M-Z9d" id="EnY-am-O4S"/>
-                        <outlet property="iceTextField" destination="Erm-oV-AuS" id="Ngn-mp-ssR"/>
                         <outlet property="nameTextField" destination="ZbV-jG-dd8" id="RHA-fy-JoY"/>
-                        <outlet property="sweetnessTextField" destination="0EC-8w-K5x" id="hgs-Pv-tEI"/>
                         <outlet property="tapiImageButton" destination="q5s-fD-GJc" id="quZ-s4-RAJ"/>
                     </connections>
                 </viewController>

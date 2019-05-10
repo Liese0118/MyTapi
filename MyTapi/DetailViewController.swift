@@ -12,8 +12,8 @@ class DetailViewController: UIViewController {
     @IBOutlet var homeButton: UIButton!
     @IBOutlet var image: UIImageView!
     @IBOutlet var nameLabel: UILabel!
-//    @IBOutlet var sweetnessLabel: UILabel!
-//    @IBOutlet var iceLabel: UILabel!
+    @IBOutlet var sweetnessLabel: UILabel!
+    @IBOutlet var iceLabel: UILabel!
     @IBAction func editButton(){}
     @IBAction func delateButton(){}
     @IBOutlet var commentLabel: UILabel!
