@@ -14,7 +14,6 @@ class DetailViewController: UIViewController {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var sweetnessLabel: UILabel!
     @IBOutlet var iceLabel: UILabel!
-    @IBAction func editButton(){}
     @IBAction func delateButton(){}
     @IBOutlet var commentLabel: UILabel!
     
@@ -34,6 +33,8 @@ extension DetailViewController {
         image.image = tapiArray[number].tapiImage
         nameLabel.text = tapiArray[number].tapiName
         commentLabel.text = tapiArray[number].tapiComment
+        sweetnessLabel.text = tapiArray[number].tapiSweetness
+        iceLabel.text = tapiArray[number].tapiIce
     }
 }
 

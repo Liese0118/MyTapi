@@ -14,7 +14,10 @@ final class Tapi: Object {
 
     @objc dynamic var id = 0
     @objc dynamic var tapiName: String = ""
+    @objc dynamic var tapiSweetness: String = ""
+    @objc dynamic var tapiIce: String = ""
     @objc dynamic var tapiComment: String = ""
+    
     @objc dynamic private var _tapiImage: UIImage? = nil
     @objc dynamic var tapiImage: UIImage? {
         set {
@@ -36,6 +39,7 @@ final class Tapi: Object {
             return nil
         }
     }
+    
     @objc dynamic private var tapiImageData: Data? = nil
     
     override static func primaryKey() -> String? {
@@ -44,7 +48,7 @@ final class Tapi: Object {
     
     //これを指定することによってRealmで定義できない型でも指定できるようにしている
     override static func ignoredProperties() -> [String] {
-        return ["_bookImage", "bookImage"]
+        return ["_tapiImage", "tapiImage"]
     }
     
     static func lasdId() -> Int {
@@ -77,3 +81,4 @@ final class Tapi: Object {
         return array
     }
 }
+

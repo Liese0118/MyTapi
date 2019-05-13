@@ -9,9 +9,14 @@
 import UIKit
 import RealmSwift
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, UITextViewDelegate {
+    
+    //IBOutlets
+    @IBOutlet weak var commentTextView: UITextView!
     
     var likeNumber: Int = 0
+    
+    
     //タピオカの写真addボタン
     @IBOutlet var tapiImageButton: UIButton!
     var tapi = Tapi.creat()
@@ -24,122 +29,108 @@ class PostViewController: UIViewController {
     @IBOutlet var nameTextField: UITextField! {
         didSet { nameTextField.delegate = self as? UITextFieldDelegate}
     }
-    //タピオカ甘さ
-    //@IBOutlet var sweetnessTextField: UITextField!
-      // var sweetnessPickerView: UIPickerView = UIPickerView()
-       // let list = ["0", "少なめ", "普通", "多め"]
-    //タピオカの氷量
-   // @IBOutlet var iceTextField: UITextField!
-   // var icePickerView: UIPickerView = UIPickerView!
-   // let list = ["", "no", "less", "normal", "hot", "mild hot"]
     
-    //タピオカのお気に入り度(星ボタン x/5で表示)
-    //1
-    //@IBAction func like1() {
-     //   likeNumber == 1
-   // }
-    //2
-   // @IBAction func like2() {
-    //    likeNumber == 2
-    //}
-    //3
-   // @IBAction func like3() {
-   //     likeNumber == 3
+    enum PickerType {
+        case sweetness
+        case ice
     }
-    //4
-   // @IBAction func like4() {
-   //     likeNumber == 4
-    //5
-  //  @IBAction func like5() {
-        //likeNumber == 5
-//}
-var commentTextView: UITextView! {
-    didSet {commentTextView.delegate = self
-        
-    }
-}
+    //タピオカ甘さ,氷,ジャンル,店
+    @IBOutlet var sweetnessTextField: UITextField!
+    @IBOutlet var iceTextField: UITextField!
     
-//   override func viewDidLoad() {
-//        super.viewDidLoad()
-//        sweetnessPickerView.dataSource = self
-//        sweetnessPickerView.delegate = self
-//        sweetnessPickerView.showsSelectionIndicator = true
-//        // Do any additional setup after loading the view.
-//        icePickerView.dataSource = self
-//        icePickerView.delegate = self
-//        icePickerView.showsSelectionIndicator = true
-//
-//        let toolbar = UIToolbar(frame: CGRectMake(0, 0, 0, 35))
-//        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(ViewController.done))
-//        let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(ViewController.cancel))
-//        toolbar.setItems([cancelItem, doneItem], animated: true)
-//
-//        self.sweetnessTextField.inputView = sweetnessPickerView
-//        self.sweetnessTextField.inputAccessoryView = toolbar
-//
-//        self.iceTextField.inputView = icePickerView
-//        self.iceTextField.inputAccessoryView = toolbar
-//
-//
-//    }
-
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-//
-//    func sweetnessPickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return list.count
-//    }
-//
-//    func sweetnessPickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return list[row]
-//    }
-//
-//    func sweetnessPickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        self.textField.text = list[row]
-//    }
-//
-//    func cancel() {
-//        self.sweetnessTextField.text = ""
-//        self.sweetnessTextField.endEditing(true)
-//    }
-//
-//    func done() {
-//        self.sweetnessTextField.endEditing(true)
-//    }
-//
-//    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
-//        return CGRect(x: x, y: y, width: width, height: height)
-//    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    var sweetnessPickerView =  ["0", "少なめ", "普通", "多め"]
+    var icePickerView =  ["", "no", "less", "normal", "hot", "mild hot"]
+    
+    
+    @IBAction func like1Button() {
+        likeNumber = 1
     }
-    */
+    @IBAction func like2Button() {
+        likeNumber = 2
+    }
+    @IBAction func like3Button() {
+        likeNumber = 3
+    }
+    @IBAction  func like4Button() {
+        likeNumber = 4
+    }
+    @IBAction func like5Button() {
+        likeNumber = 5
+    }
+    
+        
+    
+    @objc func onDoneButtonTappedForSweetness(sender: UIBarButtonItem) {
+        if sweetnessTextField.isFirstResponder {
+            sweetnessTextField.resignFirstResponder()
+        }
+    }
+    
+    @objc func onDoneButtonTappedForIce(sender: UIBarButtonItem) {
+        if iceTextField.isFirstResponder {
+            iceTextField.resignFirstResponder()
+        }
+    }
+    
+//    var icePickerView: UIPickerView = UIPickerView()
 
-func save(_ sender: Any) {
-        Tapi.tapiName      = nameTextField.text; ??""
-        Tapi.tapiComment   = commentTextView.text; ??""
-        
-        
+    /*var commentTextView: UITextView! {
+        didSet {commentTextView.delegate = self as? UITextViewDelegate
+        }
+    }*/
+    
+   override func viewDidLoad() {
+        super.viewDidLoad()
+    
+        //Delegates
+        commentTextView.delegate = self
+    
+        setupUIForSweetness()
+        setupUIForIce()
+    
+    }
+    @IBAction func save(_ sender: Any) {
+        tapi.tapiName = nameTextField.text ?? ""
+        tapi.tapiComment = commentTextView.text ?? ""
+        tapi.tapiSweetness = sweetnessTextField.text ?? ""
+        tapi.tapiIce = iceTextField.text ?? ""
+        print("画像を選択してください2")
+    
         guard let _selectedImage = selectedImage else {
             print("画像を選択してください")
             return
         }
-        Tapi.tapiImage = _selectedImage
+        tapi.tapiImage = _selectedImage
         
-        Tapi.save()
+        tapi.save()
         
         
         self.dismiss(animated: true, completion: nil)
     }
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
+}
 
-extension PostViewController: UIImagePickerControllerDelegate {
+
+
+
+
+extension PostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func useCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let picker = UIImagePickerController()
+            
+            picker.sourceType = .camera
+            picker.delegate = self
+            picker.allowsEditing = true
+            
+            print("カメラが使用できた!!!")
+            present(picker, animated: true, completion: nil)
+        } else {
+            print("カメラが使用できませんでした")
+        }
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         selectedImage = info[.editedImage] as? UIImage
@@ -150,18 +141,123 @@ extension PostViewController: UIImagePickerControllerDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-    func useCamera() {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let picker = UIImagePickerController()
-            
-            picker.sourceType = .camera
-            picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-            picker.allowsEditing = true
-            
-            present(picker, animated: true, completion: nil)
-        } else {
-            print("カメラが使用できませんでした")
+
+    
+}
+
+
+
+
+private extension PostViewController {
+    //ツールバーを表示
+    var accessoryToolbarForSweetness: UIToolbar {
+        get {
+            let toolbarFrame = CGRect(x: 0, y: 0,
+                                      width: view.frame.width, height: 44)
+            let accessoryToolbar = UIToolbar(frame: toolbarFrame)
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                             target: self,
+                                             action: #selector(onDoneButtonTappedForSweetness(sender:)))
+            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                                target: nil,
+                                                action: nil)
+            accessoryToolbar.items = [flexibleSpace, doneButton]
+            accessoryToolbar.barTintColor = UIColor.white
+            return accessoryToolbar
         }
+    }
+    var accessoryToolbarForIce: UIToolbar {
+        get {
+            let toolbarFrame = CGRect(x: 0, y: 0,
+                                      width: view.frame.width, height: 44)
+            let accessoryToolbar = UIToolbar(frame: toolbarFrame)
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                             target: self,
+                                             action: #selector(onDoneButtonTappedForIce(sender:)))
+            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                                target: nil,
+                                                action: nil)
+            accessoryToolbar.items = [flexibleSpace, doneButton]
+            accessoryToolbar.barTintColor = UIColor.white
+            return accessoryToolbar
+        }
+    }
+    func setupUIForSweetness() {
+        //UIPickerViewのインスタンスを作る時に、引数にを渡す
+        sweetnessTextField.inputView = getPickerView(type: .sweetness)
+        sweetnessTextField.inputAccessoryView = accessoryToolbarForSweetness
+        sweetnessTextField.text = sweetnessPickerView[0]
+    }
+    func setupUIForIce() {
+        //UIPickerViewのインスタンスを作る時に、引数にを渡す
+        iceTextField.inputView = getPickerView(type: .ice)
+        iceTextField.inputAccessoryView = accessoryToolbarForIce
+        iceTextField.text = icePickerView[0]
+    }
+    func getPickerView(type: PickerType) -> UIPickerView {
+        //returnするためのpickerのインスタンス作成。
+        let pickerView = UIPickerView()
+        //タイプ分け。enumで定義した数だけswitch文でcase分け
+        switch type {
+        case .sweetness:
+            pickerView.dataSource = sweetnessPickerView as? UIPickerViewDataSource
+        case .ice:
+            pickerView.dataSource = icePickerView as? UIPickerViewDataSource
+        }
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        pickerView.backgroundColor = UIColor.white
+        
+        return pickerView
     }
 }
 
+fileprivate class sweetnessPickerView: UIPickerView {}
+fileprivate class icePickerView: UIPickerView {}
+
+
+extension PostViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //getPickerView(type: PickerType)関数でタイプ分けされたインスタンスを判定して、pickerに表示する個数をそれぞれreturnする
+    func pickerView(_ pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int) -> Int {
+        switch pickerView {
+        case is sweetnessPickerView:
+            return sweetnessPickerView.count
+        case is icePickerView:
+            return icePickerView.count
+        default:
+            return sweetnessPickerView.count
+        }
+    }
+}
+extension PostViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView,
+                    titleForRow row: Int,
+                    forComponent component: Int) ->String? {
+        switch pickerView {
+        case is sweetnessPickerView:
+            return sweetnessPickerView[row]
+        case is icePickerView:
+            return icePickerView[row]
+        default:
+            return sweetnessPickerView[row]
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView,
+                    didSelectRow row: Int,
+                    inComponent component: Int) {
+        switch pickerView {
+        case is sweetnessPickerView:
+            return sweetnessTextField.text = sweetnessPickerView[row]
+        case is icePickerView:
+            return iceTextField.text = icePickerView[row]
+        default:
+            return sweetnessTextField.text = sweetnessPickerView[row]
+        }
+    }
+}
