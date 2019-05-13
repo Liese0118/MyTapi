@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Adx-FP-In2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XeK-AZ-Der">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="gPw-BY-5hY">
+            <objects>
+                <navigationController id="XeK-AZ-Der" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ogt-7w-UI2">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Adx-FP-In2" kind="relationship" relationship="rootViewController" id="c7X-O3-EUC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tp1-Cf-jdl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1607" y="134"/>
+        </scene>
+        <!--MyTapi-->
         <scene sceneID="uwo-kS-hzf">
             <objects>
-                <viewController id="Adx-FP-In2" sceneMemberID="viewController">
+                <viewController id="Adx-FP-In2" customClass="PreViewController" customModule="MyTapi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nsk-xm-sKR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,12 +53,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Bhr-eB-pa9"/>
                     </view>
+                    <navigationItem key="navigationItem" title="MyTapi" largeTitleDisplayMode="always" id="fd1-Te-CgO">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="YMK-S6-1Je"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="7aG-Qv-let" id="WZU-ar-a37"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQO-BI-qGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1423.2" y="536.45320197044339"/>
+            <point key="canvasLocation" x="-802" y="134"/>
         </scene>
-        <!--Post View Controller-->
+        <!--新たなタピオカとの出会い-->
         <scene sceneID="v7B-Gm-HnD">
             <objects>
                 <viewController id="PXn-tb-Veb" customClass="PostViewController" customModule="MyTapi" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,27 +72,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gwb-fh-nP7">
-                                <rect key="frame" x="0.0" y="33" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Myタピ" id="loY-We-v9d">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt;CANCEL" id="Wrh-0n-UTZ">
-                                            <connections>
-                                                <segue destination="UH7-dT-yBN" kind="show" id="dwr-sm-TjV"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="SAVE" id="bFa-Ub-BNM">
-                                            <connections>
-                                                <action selector="save:" destination="PXn-tb-Veb" id="cjK-ar-7Dr"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5s-fD-GJc">
                                 <rect key="frame" x="62" y="86" width="251" height="251"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="＋">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -146,8 +151,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="shu-dQ-5f7"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="新たなタピオカとの出会い" id="CTj-bf-Hxc">
+                        <barButtonItem key="rightBarButtonItem" title="SAVE" id="1ES-47-9IZ">
+                            <connections>
+                                <action selector="save:" destination="PXn-tb-Veb" id="inX-6V-Zgz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="cancelButton" destination="Wrh-0n-UTZ" id="59y-ug-LKU"/>
                         <outlet property="commentTextView" destination="6HC-2M-Z9d" id="hsz-8T-gbM"/>
                         <outlet property="iceTextField" destination="Erm-oV-AuS" id="pQm-JV-LHS"/>
                         <outlet property="nameTextField" destination="ZbV-jG-dd8" id="RHA-fy-JoY"/>
@@ -157,39 +170,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6PM-sf-Qki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14" y="-560"/>
+            <point key="canvasLocation" x="13.6" y="-560.09852216748766"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Nfm-hX-d58">
             <objects>
                 <viewController id="CBD-kE-yZb" customClass="DetailViewController" customModule="MyTapi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="igH-Iq-Bk2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PP3-RW-q1i">
                                 <rect key="frame" x="0.0" y="83" width="375" height="259"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zQJ-c5-2Rr">
-                                <rect key="frame" x="0.0" y="33" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Myタピ" id="BGa-ru-g4A">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt;HOME" id="zNQ-ch-8RF">
-                                            <connections>
-                                                <segue destination="UH7-dT-yBN" kind="show" id="Yma-S0-acZ"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" id="Opt-XH-WuF"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2Y-7f-rkx">
-                                <rect key="frame" x="0.0" y="734" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="690" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="DELATE" id="hMs-d2-u9g">
+                                    <barButtonItem title="DELETE" id="hMs-d2-u9g">
                                         <connections>
                                             <action selector="delateButton" destination="CBD-kE-yZb" id="chW-vd-LYr"/>
                                         </connections>
@@ -230,7 +229,6 @@
                     </view>
                     <connections>
                         <outlet property="commentLabel" destination="YUI-Ye-4CC" id="qD9-Ec-jqJ"/>
-                        <outlet property="homeButton" destination="zNQ-ch-8RF" id="dge-KC-Qoq"/>
                         <outlet property="iceLabel" destination="gXb-fY-swG" id="6kJ-nM-buf"/>
                         <outlet property="image" destination="PP3-RW-q1i" id="VZF-2m-6MT"/>
                         <outlet property="nameLabel" destination="ZGm-R5-AN8" id="DGx-xi-x6B"/>
@@ -239,14 +237,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itf-y9-jhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1156" y="536"/>
+            <point key="canvasLocation" x="834" y="134"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="zlT-t0-YgR">
             <objects>
-                <viewController id="UH7-dT-yBN" sceneMemberID="viewController">
+                <viewController id="UH7-dT-yBN" customClass="ViewController" customModule="MyTapi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bTf-Re-5mu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y6q-DM-f08">
@@ -260,16 +258,13 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="RHT-41-0k4">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="RHT-41-0k4">
                                         <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
-                                        <connections>
-                                            <segue destination="CBD-kE-yZb" kind="show" id="5ib-WD-oW0"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -277,17 +272,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="e3O-ih-LDK"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Y6q-DM-f08" id="WLu-vo-JnY"/>
+                        <segue destination="CBD-kE-yZb" kind="show" identifier="toDetail" id="aaj-bL-uop"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i7k-wt-5Gs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-252" y="553"/>
+            <point key="canvasLocation" x="14" y="134"/>
         </scene>
     </scenes>
     <resources>
         <image name="likeButton.png" width="352.5" height="352.5"/>
         <image name="プラスボタン.png" width="491.51998901367188" height="491.51998901367188"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="dwr-sm-TjV"/>
-    </inferredMetricsTieBreakers>
 </document>

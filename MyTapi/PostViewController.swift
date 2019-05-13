@@ -9,13 +9,12 @@
 import UIKit
 import RealmSwift
 
-class PostViewController: UIViewController, UITextViewDelegate {
+class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     //IBOutlets
     @IBOutlet weak var commentTextView: UITextView!
     
     var likeNumber: Int = 0
-    
     
     //タピオカの写真addボタン
     @IBOutlet var tapiImageButton: UIButton!
@@ -26,9 +25,7 @@ class PostViewController: UIViewController, UITextViewDelegate {
         useCamera()
     }
     //タピオカ名
-    @IBOutlet var nameTextField: UITextField! {
-        didSet { nameTextField.delegate = self as? UITextFieldDelegate}
-    }
+    @IBOutlet var nameTextField: UITextField!
     
     enum PickerType {
         case sweetness
@@ -37,9 +34,11 @@ class PostViewController: UIViewController, UITextViewDelegate {
     //タピオカ甘さ,氷,ジャンル,店
     @IBOutlet var sweetnessTextField: UITextField!
     @IBOutlet var iceTextField: UITextField!
+    var sweetness: UIPickerView = UIPickerView()
+    var sweetnessPickerViewContent =  ["0", "少なめ", "普通", "多め"]
     
-    var sweetnessPickerView =  ["0", "少なめ", "普通", "多め"]
-    var icePickerView =  ["", "no", "less", "normal", "hot", "mild hot"]
+    var ice: UIPickerView = UIPickerView()
+    var icePickerViewContent =  ["", "no", "less", "normal", "hot", "mild hot"]
     
     
     @IBAction func like1Button() {
@@ -84,12 +83,18 @@ class PostViewController: UIViewController, UITextViewDelegate {
     
         //Delegates
         commentTextView.delegate = self
-    
+        nameTextField.delegate = self
+        sweetnessTextField.delegate = self
+        iceTextField.delegate = self
+
         setupUIForSweetness()
         setupUIForIce()
-    
     }
+    
     @IBAction func save(_ sender: Any) {
+        
+        
+        
         tapi.tapiName = nameTextField.text ?? ""
         tapi.tapiComment = commentTextView.text ?? ""
         tapi.tapiSweetness = sweetnessTextField.text ?? ""
@@ -104,11 +109,14 @@ class PostViewController: UIViewController, UITextViewDelegate {
         
         tapi.save()
         
+        UIView.animate(withDuration: 0, delay: 1.0, animations: {
+            self.dismiss(animated: true, completion: nil)
+        }, completion: { finished in
+            
+        })
+        //self.dismiss(animated: true, completion: nil)
         
-        self.dismiss(animated: true, completion: nil)
     }
-    @IBOutlet weak var cancelButton: UIBarButtonItem!
-    
 }
 
 
@@ -144,8 +152,6 @@ extension PostViewController: UIImagePickerControllerDelegate, UINavigationContr
 
     
 }
-
-
 
 
 private extension PostViewController {
@@ -186,23 +192,24 @@ private extension PostViewController {
         //UIPickerViewのインスタンスを作る時に、引数にを渡す
         sweetnessTextField.inputView = getPickerView(type: .sweetness)
         sweetnessTextField.inputAccessoryView = accessoryToolbarForSweetness
-        sweetnessTextField.text = sweetnessPickerView[0]
+        sweetnessTextField.text = sweetnessPickerViewContent[0]
     }
     func setupUIForIce() {
         //UIPickerViewのインスタンスを作る時に、引数にを渡す
         iceTextField.inputView = getPickerView(type: .ice)
         iceTextField.inputAccessoryView = accessoryToolbarForIce
-        iceTextField.text = icePickerView[0]
+        iceTextField.text = icePickerViewContent[0]
     }
+    
     func getPickerView(type: PickerType) -> UIPickerView {
         //returnするためのpickerのインスタンス作成。
-        let pickerView = UIPickerView()
+        var pickerView = UIPickerView()
         //タイプ分け。enumで定義した数だけswitch文でcase分け
         switch type {
         case .sweetness:
-            pickerView.dataSource = sweetnessPickerView as? UIPickerViewDataSource
+            pickerView = sweetnessPickerView()
         case .ice:
-            pickerView.dataSource = icePickerView as? UIPickerViewDataSource
+            pickerView = icePickerView()
         }
         pickerView.dataSource = self
         pickerView.delegate = self
@@ -216,7 +223,7 @@ fileprivate class sweetnessPickerView: UIPickerView {}
 fileprivate class icePickerView: UIPickerView {}
 
 
-extension PostViewController: UIPickerViewDataSource {
+extension PostViewController {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -226,25 +233,23 @@ extension PostViewController: UIPickerViewDataSource {
                     numberOfRowsInComponent component: Int) -> Int {
         switch pickerView {
         case is sweetnessPickerView:
-            return sweetnessPickerView.count
+            return sweetnessPickerViewContent.count
         case is icePickerView:
-            return icePickerView.count
+            return icePickerViewContent.count
         default:
-            return sweetnessPickerView.count
+            return sweetnessPickerViewContent.count
         }
     }
-}
-extension PostViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView,
                     titleForRow row: Int,
                     forComponent component: Int) ->String? {
         switch pickerView {
         case is sweetnessPickerView:
-            return sweetnessPickerView[row]
+            return sweetnessPickerViewContent[row]
         case is icePickerView:
-            return icePickerView[row]
+            return icePickerViewContent[row]
         default:
-            return sweetnessPickerView[row]
+            return sweetnessPickerViewContent[row]
         }
     }
     
@@ -253,11 +258,11 @@ extension PostViewController: UIPickerViewDelegate {
                     inComponent component: Int) {
         switch pickerView {
         case is sweetnessPickerView:
-            return sweetnessTextField.text = sweetnessPickerView[row]
+            return sweetnessTextField.text = sweetnessPickerViewContent[row]
         case is icePickerView:
-            return iceTextField.text = icePickerView[row]
+            return iceTextField.text = icePickerViewContent[row]
         default:
-            return sweetnessTextField.text = sweetnessPickerView[row]
+            return sweetnessTextField.text = sweetnessPickerViewContent[row]
         }
     }
 }

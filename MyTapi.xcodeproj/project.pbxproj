@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B08AFAA2289953B00742B3B /* PreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B08AFA92289953B00742B3B /* PreViewController.swift */; };
 		6B5CE17D22780B5F0081C30F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5CE17C22780B5F0081C30F /* DetailViewController.swift */; };
 		6B5CE181227894830081C30F /* likeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B5CE180227894820081C30F /* likeButton.png */; };
 		6B84D0E02284680200066F91 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B84D0DE2284680100066F91 /* CustomCollectionViewCell.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		05F9D55BAA85D8FADB5C88D0 /* Pods-MyTapi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTapi.release.xcconfig"; path = "Target Support Files/Pods-MyTapi/Pods-MyTapi.release.xcconfig"; sourceTree = "<group>"; };
+		6B08AFA92289953B00742B3B /* PreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreViewController.swift; sourceTree = "<group>"; };
 		6B5CE17C22780B5F0081C30F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6B5CE180227894820081C30F /* likeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = likeButton.png; sourceTree = "<group>"; };
 		6B84D0DE2284680100066F91 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				6B5CE180227894820081C30F /* likeButton.png */,
 				6B8AA8272277174500AAB39C /* プラスボタン.png */,
 				6B8AA8152277154D00AAB39C /* AppDelegate.swift */,
+				6B08AFA92289953B00742B3B /* PreViewController.swift */,
 				6B8AA8172277154D00AAB39C /* ViewController.swift */,
 				6B8AA8292277305D00AAB39C /* PostViewController.swift */,
 				6B5CE17C22780B5F0081C30F /* DetailViewController.swift */,
@@ -241,6 +244,7 @@
 				6B8AA82A2277305D00AAB39C /* PostViewController.swift in Sources */,
 				6B84D0E02284680200066F91 /* CustomCollectionViewCell.swift in Sources */,
 				6B8AA8182277154D00AAB39C /* ViewController.swift in Sources */,
+				6B08AFAA2289953B00742B3B /* PreViewController.swift in Sources */,
 				6B5CE17D22780B5F0081C30F /* DetailViewController.swift in Sources */,
 				6B8AA8162277154D00AAB39C /* AppDelegate.swift in Sources */,
 				6B8AA82C2277E72700AAB39C /* Tapi.swift in Sources */,

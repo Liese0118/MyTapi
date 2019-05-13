@@ -10,7 +10,6 @@ import UIKit
 import RealmSwift
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    @IBOutlet weak var addButton: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     var tapis: [Tapi]!
     
@@ -32,7 +31,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        //customCellを使う場合registerしてあげる
         collectionView.register(UINib(nibName: "CustomCollectionViewCell",
                                       bundle: nil),
                                 forCellWithReuseIdentifier: "cell")
@@ -42,7 +40,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         tapis = Tapi.loadAll()
         collectionView.reloadData()
+        print("its working!!!")
     }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail" {
             let detailViewController = segue.destination as! DetailViewController
@@ -53,12 +53,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.performSegue(withIdentifier: "toDetail", sender: indexPath.row)
     }
     
-    //cellの数をセット
+    //cellの数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tapis.count
     }
     
-    //cellの中身をセット
+    //cellの中身
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as!
             CustomCollectionViewCell
