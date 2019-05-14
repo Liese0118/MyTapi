@@ -10,12 +10,8 @@ import UIKit
 import RealmSwift
 
 class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-    var tapi = Tapi.creat()
-    var like1Number: Int = 0
-    var like2Number: Int = 0
-    var like3Number: Int = 0
-    var like4Number: Int = 0
-    var like5Number: Int = 0
+    var tapi = Tapi.create()
+    var likeNumber: Int = 0
     
     let likeImage:UIImage = UIImage(named:"likeButton.png")!
     let likedImage:UIImage = UIImage(named:"likedButton.PNG")!
@@ -35,55 +31,103 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     @IBOutlet var like4Button: UIButton!
     @IBOutlet var like5Button: UIButton!
     @IBAction func like1Tapped() {
-        like1Number += 1
-        
-        if(like1Number%2 == 1){
-            like1Button.setImage(likedImage, for: .normal)
+        if(likeNumber == 1){
+            like1Button.isSelected = false
+            like2Button.isSelected = false
+            like3Button.isSelected = false
+            like4Button.isSelected = false
+            like5Button.isSelected = false
+            likeNumber = 0
         }
         else{
-            like1Number = 0
-            like1Button.setImage(likeImage, for: .normal)}
+            like1Button.isSelected = true
+            like2Button.isSelected = false
+            like3Button.isSelected = false
+            like4Button.isSelected = false
+            like5Button.isSelected = false
+            likeNumber = 1
+        }
+        
     }
     @IBAction func like2Tapped() {
-        like2Number += 1
-        
-        if(like2Number%2 == 1) && (like1Number%2 == 1){
-            like2Button.setImage(likedImage, for: .normal)
+        if(likeNumber == 2){
+            like1Button.isSelected = false
+            like2Button.isSelected = false
+            like3Button.isSelected = false
+            like4Button.isSelected = false
+            like5Button.isSelected = false
+            likeNumber = 0
         }
         else{
-            like2Number = 0
-            like2Button.setImage(likeImage, for: .normal)}
+            like1Button.isSelected = true
+            like2Button.isSelected = true
+            like3Button.isSelected = false
+            like4Button.isSelected = false
+            like5Button.isSelected = false
+            likeNumber = 2
+        }
     }
     @IBAction func like3Tapped() {
-        like3Number += 1
-        
-        if(like3Number%2 == 1) && (like2Number%2 == 1){
-            like3Button.setImage(likedImage, for: .normal)
+        if(likeNumber == 3){
+            like1Button.isSelected = false
+            like2Button.isSelected = false
+            like3Button.isSelected = false
+            like4Button.isSelected = false
+            like5Button.isSelected = false
+            likeNumber = 0
         }
         else{
-            like3Number = 0
-            like3Button.setImage(likeImage, for: .normal)}
+            like1Button.isSelected = true
+            like2Button.isSelected = true
+            like3Button.isSelected = true
+            like4Button.isSelected = false
+            like5Button.isSelected = false
+            likeNumber = 3
+    }
     }
     @IBAction func like4Tapped() {
-        like4Number += 1
-        
-        if(like4Number%2 == 1) && (like3Number%2 == 1){
-            like4Button.setImage(likedImage, for: .normal)
+        if(likeNumber == 4) {
+            like1Button.isSelected = false
+            like2Button.isSelected = false
+            like3Button.isSelected = false
+            like4Button.isSelected = false
+            like5Button.isSelected = false
+            likeNumber = 0
         }
         else{
-            like4Number = 0
-            like4Button.setImage(likeImage, for: .normal)}
+            like1Button.isSelected = true
+            like2Button.isSelected = true
+            like3Button.isSelected = true
+            like4Button.isSelected = true
+            like5Button.isSelected = false
+            likeNumber = 4
+}
     }
     @IBAction func like5Tapped() {
-        like5Number += 1
-        
-        if(like5Number%2 == 1) && (like4Number%2 == 1){
-            like5Button.setImage(likedImage, for: .normal)
+        if(likeNumber == 5) {
+            like1Button.isSelected = false
+            like2Button.isSelected = false
+            like3Button.isSelected = false
+            like4Button.isSelected = false
+            like5Button.isSelected = false
+            likeNumber = 0
         }
         else{
-            like5Number = 0
-            like5Button.setImage(likeImage, for: .normal)}
+            like1Button.isSelected = true
+            like2Button.isSelected = true
+            like3Button.isSelected = true
+            like4Button.isSelected = true
+            like5Button.isSelected = true
+            likeNumber = 5
+        }
     }
+    
+    func printstuff() {
+        
+        print()
+        
+    }
+    
     var selectedImage: UIImage!
 
     enum PickerType {
@@ -120,6 +164,23 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     
    override func viewDidLoad() {
         super.viewDidLoad()
+    like1Button.setImage(likeImage, for: .normal)
+    like1Button.setImage(likedImage, for: .selected)
+    like2Button.setImage(likeImage, for: .normal)
+    like2Button.setImage(likedImage, for: .selected)
+    like3Button.setImage(likeImage, for: .normal)
+    like3Button.setImage(likedImage, for: .selected)
+    like4Button.setImage(likeImage, for: .normal)
+    like4Button.setImage(likedImage, for: .selected)
+    like5Button.setImage(likeImage, for: .normal)
+    like5Button.setImage(likedImage, for: .selected)
+    
+    
+    like1Button.isSelected = false
+    like2Button.isSelected = false
+    like3Button.isSelected = false
+    like4Button.isSelected = false
+    like5Button.isSelected = false
     
         //Delegates
         commentTextView.delegate = self
@@ -137,6 +198,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         tapi.tapiComment = commentTextView.text ?? ""
         tapi.tapiSweetness = sweetnessTextField.text ?? ""
         tapi.tapiIce = iceTextField.text ?? ""
+        tapi.tapiLike = likeNumber
         print("画像を選択してください2")
     
         guard let _selectedImage = selectedImage else {

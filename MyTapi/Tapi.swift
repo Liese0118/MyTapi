@@ -17,11 +17,7 @@ final class Tapi: Object {
     @objc dynamic var tapiSweetness: String = ""
     @objc dynamic var tapiIce: String = ""
     @objc dynamic var tapiComment: String = ""
-    @objc dynamic var tapiLike1: Int = 0
-    @objc dynamic var tapiLike2: Int = 0
-    @objc dynamic var tapiLike3: Int = 0
-    @objc dynamic var tapiLike4: Int = 0
-    @objc dynamic var tapiLike5: Int = 0
+    @objc dynamic var tapiLike: Int = 0
     
     
     @objc dynamic private var _tapiImage: UIImage? = nil
@@ -64,7 +60,7 @@ final class Tapi: Object {
         }
     }
     
-    static func creat() -> Tapi {
+    static func create() -> Tapi {
         let tapi = Tapi()
         tapi.id = lasdId()
         return tapi

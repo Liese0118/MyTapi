@@ -9,7 +9,9 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    @IBOutlet var homeButton: UIButton!
+    let likeImage:UIImage = UIImage(named:"likeButton.png")!
+    let likedImage:UIImage = UIImage(named:"likedButton.PNG")!
+    
     @IBOutlet var image: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var sweetnessLabel: UILabel!
@@ -20,15 +22,65 @@ class DetailViewController: UIViewController {
     @IBOutlet var like3: UIImageView!
     @IBOutlet var like4: UIImageView!
     @IBOutlet var like5: UIImageView!
+    func like() {
+        if (likeNumber == 0) {
+            self.like1.image = UIImage(named: "likeButton.png")
+            self.like2.image = UIImage(named: "likeButton.png")
+            self.like3.image = UIImage(named: "likeButton.png")
+            self.like4.image = UIImage(named: "likeButton.png")
+            self.like5.image = UIImage(named: "likeButton.png")
+        }
+        else if (likeNumber == 1) {
+            self.like1.image = UIImage(named: "likedButton.PNG")
+            self.like2.image = UIImage(named: "likeButton.png")
+            self.like3.image = UIImage(named: "likeButton.png")
+            self.like4.image = UIImage(named: "likeButton.png")
+            self.like5.image = UIImage(named: "likeButton.png")
+        }
+        else if (likeNumber == 2){
+            self.like1.image = UIImage(named: "likedButton.PNG")
+            self.like2.image = UIImage(named: "likedButton.PNG")
+            self.like3.image = UIImage(named: "likeButton.png")
+            self.like4.image = UIImage(named: "likeButton.png")
+            self.like5.image = UIImage(named: "likeButton.png")
+        }
+        else if (likeNumber == 3) {
+            self.like1.image = UIImage(named: "likedButton.PNG")
+            self.like2.image = UIImage(named: "likedButton.PNG")
+            self.like3.image = UIImage(named: "likedButton.PNG")
+            self.like4.image = UIImage(named: "likeButton.png")
+            self.like5.image = UIImage(named: "likeButton.png")
+        }
+        else if (likeNumber == 4) {
+            self.like1.image = UIImage(named: "likedButton.PNG")
+            self.like2.image = UIImage(named: "likedButton.PNG")
+            self.like3.image = UIImage(named: "likedButton.PNG")
+            self.like4.image = UIImage(named: "likedButton.PNG")
+            self.like5.image = UIImage(named: "likeButton.png")
+        }
+        else {
+            self.like1.image = UIImage(named: "likedButton.PNG")
+            self.like2.image = UIImage(named: "likedButton.PNG")
+            self.like3.image = UIImage(named: "likedButton.PNG")
+            self.like4.image = UIImage(named: "likedButton.PNG")
+            self.like5.image = UIImage(named: "likedButton.PNG")
+        }
+        }
+
+
     @IBAction func deleteButton(){}
     
     var tapiArray: [Tapi]!
     var number: Int!
+    var likeNumber: Int!
+    
+    //var starOne
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tapiArray = Tapi.loadAll()
         setUpDetail()
+        like()
         // Do any additional setup after loading the view.
     }
 }
@@ -40,6 +92,9 @@ extension DetailViewController {
         commentLabel.text = tapiArray[number].tapiComment
         sweetnessLabel.text = tapiArray[number].tapiSweetness
         iceLabel.text = tapiArray[number].tapiIce
+        likeNumber = tapiArray[number].tapiLike
+        
+        
     }
 }
 
