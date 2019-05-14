@@ -14,8 +14,13 @@ class DetailViewController: UIViewController {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var sweetnessLabel: UILabel!
     @IBOutlet var iceLabel: UILabel!
-    @IBAction func delateButton(){}
     @IBOutlet var commentLabel: UILabel!
+    @IBOutlet var like1: UIImageView!
+    @IBOutlet var like2: UIImageView!
+    @IBOutlet var like3: UIImageView!
+    @IBOutlet var like4: UIImageView!
+    @IBOutlet var like5: UIImageView!
+    @IBAction func deleteButton(){}
     
     var tapiArray: [Tapi]!
     var number: Int!

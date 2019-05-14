@@ -17,6 +17,12 @@ final class Tapi: Object {
     @objc dynamic var tapiSweetness: String = ""
     @objc dynamic var tapiIce: String = ""
     @objc dynamic var tapiComment: String = ""
+    @objc dynamic var tapiLike1: Int = 0
+    @objc dynamic var tapiLike2: Int = 0
+    @objc dynamic var tapiLike3: Int = 0
+    @objc dynamic var tapiLike4: Int = 0
+    @objc dynamic var tapiLike5: Int = 0
+    
     
     @objc dynamic private var _tapiImage: UIImage? = nil
     @objc dynamic var tapiImage: UIImage? {
@@ -46,7 +52,6 @@ final class Tapi: Object {
         return "id"
     }
     
-    //これを指定することによってRealmで定義できない型でも指定できるようにしている
     override static func ignoredProperties() -> [String] {
         return ["_tapiImage", "tapiImage"]
     }

@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6B08AFAA2289953B00742B3B /* PreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B08AFA92289953B00742B3B /* PreViewController.swift */; };
+		6B4FE6D8228AB0760086A77B /* likedButton.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 6B4FE6D7228AB0750086A77B /* likedButton.PNG */; settings = {ASSET_TAGS = (likedImage, ); }; };
+		6B4FE6DA228ABB300086A77B /* likeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B4FE6D9228ABB300086A77B /* likeButton.png */; settings = {ASSET_TAGS = (likeImage, ); }; };
 		6B5CE17D22780B5F0081C30F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5CE17C22780B5F0081C30F /* DetailViewController.swift */; };
-		6B5CE181227894830081C30F /* likeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B5CE180227894820081C30F /* likeButton.png */; };
 		6B84D0E02284680200066F91 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B84D0DE2284680100066F91 /* CustomCollectionViewCell.swift */; };
 		6B84D0E12284680200066F91 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B84D0DF2284680100066F91 /* CustomCollectionViewCell.xib */; };
 		6B8AA8162277154D00AAB39C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8AA8152277154D00AAB39C /* AppDelegate.swift */; };
@@ -27,8 +28,9 @@
 /* Begin PBXFileReference section */
 		05F9D55BAA85D8FADB5C88D0 /* Pods-MyTapi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTapi.release.xcconfig"; path = "Target Support Files/Pods-MyTapi/Pods-MyTapi.release.xcconfig"; sourceTree = "<group>"; };
 		6B08AFA92289953B00742B3B /* PreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreViewController.swift; sourceTree = "<group>"; };
+		6B4FE6D7228AB0750086A77B /* likedButton.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = likedButton.PNG; sourceTree = "<group>"; };
+		6B4FE6D9228ABB300086A77B /* likeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = likeButton.png; sourceTree = "<group>"; };
 		6B5CE17C22780B5F0081C30F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		6B5CE180227894820081C30F /* likeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = likeButton.png; sourceTree = "<group>"; };
 		6B84D0DE2284680100066F91 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		6B84D0DF2284680100066F91 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 		6B8AA8122277154D00AAB39C /* MyTapi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTapi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,8 +89,9 @@
 		6B8AA8142277154D00AAB39C /* MyTapi */ = {
 			isa = PBXGroup;
 			children = (
+				6B4FE6D9228ABB300086A77B /* likeButton.png */,
+				6B4FE6D7228AB0750086A77B /* likedButton.PNG */,
 				6BD6FD7022868CDE00C0EFB9 /* 枠.jpg */,
-				6B5CE180227894820081C30F /* likeButton.png */,
 				6B8AA8272277174500AAB39C /* プラスボタン.png */,
 				6B8AA8152277154D00AAB39C /* AppDelegate.swift */,
 				6B08AFA92289953B00742B3B /* PreViewController.swift */,
@@ -143,6 +146,12 @@
 		6B8AA80A2277154D00AAB39C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					likeButton,
+					likeImage,
+					likedButton,
+					likedImage,
+				);
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "瓜生理世";
@@ -177,11 +186,12 @@
 			files = (
 				6B8AA8202277155800AAB39C /* LaunchScreen.storyboard in Resources */,
 				6B84D0E12284680200066F91 /* CustomCollectionViewCell.xib in Resources */,
+				6B4FE6DA228ABB300086A77B /* likeButton.png in Resources */,
 				6BD6FD7122868CDE00C0EFB9 /* 枠.jpg in Resources */,
 				6B8AA81D2277155800AAB39C /* Assets.xcassets in Resources */,
-				6B5CE181227894830081C30F /* likeButton.png in Resources */,
 				6B8AA8282277174600AAB39C /* プラスボタン.png in Resources */,
 				6B8AA81B2277154D00AAB39C /* Main.storyboard in Resources */,
+				6B4FE6D8228AB0760086A77B /* likedButton.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

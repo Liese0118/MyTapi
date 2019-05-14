@@ -115,26 +115,41 @@
                                 <rect key="frame" x="16" y="472" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="likeButton.png"/>
+                                <connections>
+                                    <action selector="like1Tapped" destination="PXn-tb-Veb" eventType="touchUpInside" id="J2q-R2-HRn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zk1-p9-HMq">
                                 <rect key="frame" x="68" y="472" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="likeButton.png"/>
+                                <connections>
+                                    <action selector="like2Tapped" destination="PXn-tb-Veb" eventType="touchUpInside" id="rsl-PX-cXQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKO-Hr-yMR">
                                 <rect key="frame" x="120" y="472" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="likeButton.png"/>
+                                <connections>
+                                    <action selector="like3Tapped" destination="PXn-tb-Veb" eventType="touchUpInside" id="r8C-8z-Qrc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R24-Y1-ICv">
                                 <rect key="frame" x="172" y="472" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="likeButton.png"/>
+                                <connections>
+                                    <action selector="like4Tapped" destination="PXn-tb-Veb" eventType="touchUpInside" id="hy9-nj-FOM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDA-cS-lgV">
                                 <rect key="frame" x="224" y="472" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="likeButton.png"/>
+                                <connections>
+                                    <action selector="like5Tapped" destination="PXn-tb-Veb" eventType="touchUpInside" id="r6G-2w-on5"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="079-XP-df8">
                                 <rect key="frame" x="0.0" y="597" width="375" height="181"/>
@@ -163,6 +178,11 @@
                     <connections>
                         <outlet property="commentTextView" destination="6HC-2M-Z9d" id="hsz-8T-gbM"/>
                         <outlet property="iceTextField" destination="Erm-oV-AuS" id="pQm-JV-LHS"/>
+                        <outlet property="like1Button" destination="K6K-ZK-fS8" id="bdv-rV-Dp9"/>
+                        <outlet property="like2Button" destination="Zk1-p9-HMq" id="yS9-Nu-YzQ"/>
+                        <outlet property="like3Button" destination="OKO-Hr-yMR" id="wzb-qI-uTg"/>
+                        <outlet property="like4Button" destination="R24-Y1-ICv" id="AmL-jZ-ifN"/>
+                        <outlet property="like5Button" destination="IDA-cS-lgV" id="79c-nX-x0O"/>
                         <outlet property="nameTextField" destination="ZbV-jG-dd8" id="RHA-fy-JoY"/>
                         <outlet property="sweetnessTextField" destination="0EC-8w-K5x" id="s52-05-XKN"/>
                         <outlet property="tapiImageButton" destination="q5s-fD-GJc" id="fkv-2S-XE3"/>
@@ -188,29 +208,25 @@
                                 <rect key="frame" x="0.0" y="690" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="DELETE" id="hMs-d2-u9g">
-                                        <connections>
-                                            <action selector="delateButton" destination="CBD-kE-yZb" id="chW-vd-LYr"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="DELETE" id="hMs-d2-u9g"/>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGm-R5-AN8">
-                                <rect key="frame" x="16" y="366" width="120" height="37"/>
+                                <rect key="frame" x="16" y="361" width="120" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sweetness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2S-82-xWQ">
-                                <rect key="frame" x="16" y="429" width="120" height="37"/>
+                                <rect key="frame" x="16" y="425" width="120" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUI-Ye-4CC">
-                                <rect key="frame" x="16" y="484" width="343" height="100"/>
+                                <rect key="frame" x="16" y="457" width="343" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -223,6 +239,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whG-Hx-ghI">
+                                <rect key="frame" x="16" y="539" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ql-fo-bMm">
+                                <rect key="frame" x="69" y="539" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4aL-kR-klR">
+                                <rect key="frame" x="121" y="539" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tzD-WZ-r7w">
+                                <rect key="frame" x="174" y="539" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ft6-4N-eNN">
+                                <rect key="frame" x="226" y="539" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Cqa-Pe-Ff8"/>
@@ -231,6 +267,11 @@
                         <outlet property="commentLabel" destination="YUI-Ye-4CC" id="qD9-Ec-jqJ"/>
                         <outlet property="iceLabel" destination="gXb-fY-swG" id="6kJ-nM-buf"/>
                         <outlet property="image" destination="PP3-RW-q1i" id="VZF-2m-6MT"/>
+                        <outlet property="like1" destination="whG-Hx-ghI" id="vg6-T4-Rjt"/>
+                        <outlet property="like2" destination="6Ql-fo-bMm" id="xaX-Bu-Jfe"/>
+                        <outlet property="like3" destination="4aL-kR-klR" id="tNX-iu-oXx"/>
+                        <outlet property="like4" destination="tzD-WZ-r7w" id="f11-9z-bH3"/>
+                        <outlet property="like5" destination="ft6-4N-eNN" id="XQM-ho-40W"/>
                         <outlet property="nameLabel" destination="ZGm-R5-AN8" id="DGx-xi-x6B"/>
                         <outlet property="sweetnessLabel" destination="w2S-82-xWQ" id="PdC-DT-J4a"/>
                     </connections>

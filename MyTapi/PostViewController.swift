@@ -10,30 +10,87 @@ import UIKit
 import RealmSwift
 
 class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    //IBOutlets
-    @IBOutlet weak var commentTextView: UITextView!
-    
-    var likeNumber: Int = 0
-    
-    //タピオカの写真addボタン
-    @IBOutlet var tapiImageButton: UIButton!
     var tapi = Tapi.creat()
-    var selectedImage: UIImage!
-    //タピオカの写真追加(カメラを使う）
+    var like1Number: Int = 0
+    var like2Number: Int = 0
+    var like3Number: Int = 0
+    var like4Number: Int = 0
+    var like5Number: Int = 0
+    
+    let likeImage:UIImage = UIImage(named:"likeButton.png")!
+    let likedImage:UIImage = UIImage(named:"likedButton.PNG")!
+    //IBOutlets
+    //タピオカの写真addボタン
     @IBAction func setTapiImage(_ sender: Any) {
         useCamera()
     }
-    //タピオカ名
+    @IBOutlet var tapiImageButton: UIButton!
+    @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet var nameTextField: UITextField!
-    
+    @IBOutlet var sweetnessTextField: UITextField!
+    @IBOutlet var iceTextField: UITextField!
+    @IBOutlet var like1Button: UIButton!
+    @IBOutlet var like2Button: UIButton!
+    @IBOutlet var like3Button: UIButton!
+    @IBOutlet var like4Button: UIButton!
+    @IBOutlet var like5Button: UIButton!
+    @IBAction func like1Tapped() {
+        like1Number += 1
+        
+        if(like1Number%2 == 1){
+            like1Button.setImage(likedImage, for: .normal)
+        }
+        else{
+            like1Number = 0
+            like1Button.setImage(likeImage, for: .normal)}
+    }
+    @IBAction func like2Tapped() {
+        like2Number += 1
+        
+        if(like2Number%2 == 1) && (like1Number%2 == 1){
+            like2Button.setImage(likedImage, for: .normal)
+        }
+        else{
+            like2Number = 0
+            like2Button.setImage(likeImage, for: .normal)}
+    }
+    @IBAction func like3Tapped() {
+        like3Number += 1
+        
+        if(like3Number%2 == 1) && (like2Number%2 == 1){
+            like3Button.setImage(likedImage, for: .normal)
+        }
+        else{
+            like3Number = 0
+            like3Button.setImage(likeImage, for: .normal)}
+    }
+    @IBAction func like4Tapped() {
+        like4Number += 1
+        
+        if(like4Number%2 == 1) && (like3Number%2 == 1){
+            like4Button.setImage(likedImage, for: .normal)
+        }
+        else{
+            like4Number = 0
+            like4Button.setImage(likeImage, for: .normal)}
+    }
+    @IBAction func like5Tapped() {
+        like5Number += 1
+        
+        if(like5Number%2 == 1) && (like4Number%2 == 1){
+            like5Button.setImage(likedImage, for: .normal)
+        }
+        else{
+            like5Number = 0
+            like5Button.setImage(likeImage, for: .normal)}
+    }
+    var selectedImage: UIImage!
+
     enum PickerType {
         case sweetness
         case ice
     }
-    //タピオカ甘さ,氷,ジャンル,店
-    @IBOutlet var sweetnessTextField: UITextField!
-    @IBOutlet var iceTextField: UITextField!
+    
     var sweetness: UIPickerView = UIPickerView()
     var sweetnessPickerViewContent =  ["0", "少なめ", "普通", "多め"]
     
@@ -41,23 +98,6 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     var icePickerViewContent =  ["", "no", "less", "normal", "hot", "mild hot"]
     
     
-    @IBAction func like1Button() {
-        likeNumber = 1
-    }
-    @IBAction func like2Button() {
-        likeNumber = 2
-    }
-    @IBAction func like3Button() {
-        likeNumber = 3
-    }
-    @IBAction  func like4Button() {
-        likeNumber = 4
-    }
-    @IBAction func like5Button() {
-        likeNumber = 5
-    }
-    
-        
     
     @objc func onDoneButtonTappedForSweetness(sender: UIBarButtonItem) {
         if sweetnessTextField.isFirstResponder {
@@ -93,8 +133,6 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     
     @IBAction func save(_ sender: Any) {
         
-        
-        
         tapi.tapiName = nameTextField.text ?? ""
         tapi.tapiComment = commentTextView.text ?? ""
         tapi.tapiSweetness = sweetnessTextField.text ?? ""
@@ -109,13 +147,13 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         
         tapi.save()
         
-        UIView.animate(withDuration: 0, delay: 1.0, animations: {
-            self.dismiss(animated: true, completion: nil)
-        }, completion: { finished in
-            
-        })
+//        UIView.animate(withDuration: 0, delay: 1.0, animations: {
+//            self.dismiss(animated: true, completion: nil)
+//        }, completion: { finished in
+//
+//        })
         //self.dismiss(animated: true, completion: nil)
-        
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -189,13 +227,11 @@ private extension PostViewController {
         }
     }
     func setupUIForSweetness() {
-        //UIPickerViewのインスタンスを作る時に、引数にを渡す
         sweetnessTextField.inputView = getPickerView(type: .sweetness)
         sweetnessTextField.inputAccessoryView = accessoryToolbarForSweetness
         sweetnessTextField.text = sweetnessPickerViewContent[0]
     }
     func setupUIForIce() {
-        //UIPickerViewのインスタンスを作る時に、引数にを渡す
         iceTextField.inputView = getPickerView(type: .ice)
         iceTextField.inputAccessoryView = accessoryToolbarForIce
         iceTextField.text = icePickerViewContent[0]
@@ -228,7 +264,7 @@ extension PostViewController {
         return 1
     }
     
-    //getPickerView(type: PickerType)関数でタイプ分けされたインスタンスを判定して、pickerに表示する個数をそれぞれreturnする
+    //getPickerViewでタイプ分けされたインスタンスを判定して、pickerに表示する個数をそれぞれ返す
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int) -> Int {
         switch pickerView {
