@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var sweetnessLabel: UILabel!
     @IBOutlet var iceLabel: UILabel!
+    @IBOutlet var shopLabel: UILabel!
     @IBOutlet var commentLabel: UILabel!
     @IBOutlet var like1: UIImageView!
     @IBOutlet var like2: UIImageView!
@@ -92,6 +93,7 @@ extension DetailViewController {
         commentLabel.text = tapiArray[number].tapiComment
         sweetnessLabel.text = tapiArray[number].tapiSweetness
         iceLabel.text = tapiArray[number].tapiIce
+        shopLabel.text = tapiArray[number].tapiShop
         likeNumber = tapiArray[number].tapiLike
         
         

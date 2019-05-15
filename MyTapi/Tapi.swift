@@ -16,6 +16,7 @@ final class Tapi: Object {
     @objc dynamic var tapiName: String = ""
     @objc dynamic var tapiSweetness: String = ""
     @objc dynamic var tapiIce: String = ""
+    @objc dynamic var tapiShop: String = ""
     @objc dynamic var tapiComment: String = ""
     @objc dynamic var tapiLike: Int = 0
     

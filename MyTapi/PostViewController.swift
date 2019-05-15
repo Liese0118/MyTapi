@@ -25,6 +25,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var sweetnessTextField: UITextField!
     @IBOutlet var iceTextField: UITextField!
+    @IBOutlet var shopTextField: UITextField!
     @IBOutlet var like1Button: UIButton!
     @IBOutlet var like2Button: UIButton!
     @IBOutlet var like3Button: UIButton!
@@ -133,6 +134,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     enum PickerType {
         case sweetness
         case ice
+        case shop
     }
     
     var sweetness: UIPickerView = UIPickerView()
@@ -141,6 +143,8 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     var ice: UIPickerView = UIPickerView()
     var icePickerViewContent =  ["", "no", "less", "normal", "hot", "mild hot"]
     
+    var shop: UIPickerView = UIPickerView()
+    var shopPickerViewContent =  ["", "Gongcha", "", "normal", "hot", "mild hot"]
     
     
     @objc func onDoneButtonTappedForSweetness(sender: UIBarButtonItem) {
@@ -152,6 +156,11 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     @objc func onDoneButtonTappedForIce(sender: UIBarButtonItem) {
         if iceTextField.isFirstResponder {
             iceTextField.resignFirstResponder()
+        }
+    }
+    @objc func onDoneButtonTappedForShop(sender: UIBarButtonItem) {
+        if shopTextField.isFirstResponder {
+            shopTextField.resignFirstResponder()
         }
     }
     
@@ -187,9 +196,11 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         nameTextField.delegate = self
         sweetnessTextField.delegate = self
         iceTextField.delegate = self
+        shopTextField.delegate = self
 
         setupUIForSweetness()
         setupUIForIce()
+        setupUIForShop()
     }
     
     @IBAction func save(_ sender: Any) {
@@ -198,6 +209,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         tapi.tapiComment = commentTextView.text ?? ""
         tapi.tapiSweetness = sweetnessTextField.text ?? ""
         tapi.tapiIce = iceTextField.text ?? ""
+        tapi.tapiShop = shopTextField.text ?? ""
         tapi.tapiLike = likeNumber
         print("画像を選択してください2")
     
@@ -288,6 +300,23 @@ private extension PostViewController {
             return accessoryToolbar
         }
     }
+    var accessoryToolbarForShop: UIToolbar {
+        get {
+            let toolbarFrame = CGRect(x: 0, y: 0,
+                                      width: view.frame.width, height: 44)
+            let accessoryToolbar = UIToolbar(frame: toolbarFrame)
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                             target: self,
+                                             action: #selector(onDoneButtonTappedForShop(sender:)))
+            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                                target: nil,
+                                                action: nil)
+            accessoryToolbar.items = [flexibleSpace, doneButton]
+            accessoryToolbar.barTintColor = UIColor.white
+            return accessoryToolbar
+        }
+    }
+    
     func setupUIForSweetness() {
         sweetnessTextField.inputView = getPickerView(type: .sweetness)
         sweetnessTextField.inputAccessoryView = accessoryToolbarForSweetness
@@ -297,6 +326,11 @@ private extension PostViewController {
         iceTextField.inputView = getPickerView(type: .ice)
         iceTextField.inputAccessoryView = accessoryToolbarForIce
         iceTextField.text = icePickerViewContent[0]
+    }
+    func setupUIForShop() {
+        shopTextField.inputView = getPickerView(type: .shop)
+        shopTextField.inputAccessoryView = accessoryToolbarForShop
+        shopTextField.text = shopPickerViewContent[0]
     }
     
     func getPickerView(type: PickerType) -> UIPickerView {
@@ -308,6 +342,8 @@ private extension PostViewController {
             pickerView = sweetnessPickerView()
         case .ice:
             pickerView = icePickerView()
+        case .shop:
+            pickerView = shopPickerView()
         }
         pickerView.dataSource = self
         pickerView.delegate = self
@@ -319,6 +355,7 @@ private extension PostViewController {
 
 fileprivate class sweetnessPickerView: UIPickerView {}
 fileprivate class icePickerView: UIPickerView {}
+fileprivate class shopPickerView: UIPickerView {}
 
 
 extension PostViewController {
@@ -334,6 +371,8 @@ extension PostViewController {
             return sweetnessPickerViewContent.count
         case is icePickerView:
             return icePickerViewContent.count
+        case is shopPickerView:
+            return shopPickerViewContent.count
         default:
             return sweetnessPickerViewContent.count
         }
@@ -346,6 +385,8 @@ extension PostViewController {
             return sweetnessPickerViewContent[row]
         case is icePickerView:
             return icePickerViewContent[row]
+        case is shopPickerView:
+            return shopPickerViewContent[row]
         default:
             return sweetnessPickerViewContent[row]
         }
@@ -359,6 +400,8 @@ extension PostViewController {
             return sweetnessTextField.text = sweetnessPickerViewContent[row]
         case is icePickerView:
             return iceTextField.text = icePickerViewContent[row]
+        case is shopPickerView:
+            return shopTextField.text = shopPickerViewContent[row]
         default:
             return sweetnessTextField.text = sweetnessPickerViewContent[row]
         }

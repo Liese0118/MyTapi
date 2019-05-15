@@ -90,7 +90,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ジャンル" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2hL-JV-AQG">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="お店" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2hL-JV-AQG">
                                 <rect key="frame" x="16" y="385" width="174" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -184,6 +184,7 @@
                         <outlet property="like4Button" destination="R24-Y1-ICv" id="AmL-jZ-ifN"/>
                         <outlet property="like5Button" destination="IDA-cS-lgV" id="79c-nX-x0O"/>
                         <outlet property="nameTextField" destination="ZbV-jG-dd8" id="RHA-fy-JoY"/>
+                        <outlet property="shopTextField" destination="2hL-JV-AQG" id="bC1-Je-xyU"/>
                         <outlet property="sweetnessTextField" destination="0EC-8w-K5x" id="s52-05-XKN"/>
                         <outlet property="tapiImageButton" destination="q5s-fD-GJc" id="fkv-2S-XE3"/>
                     </connections>
@@ -259,6 +260,13 @@
                                 <rect key="frame" x="226" y="539" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUv-M4-UyC">
+                                <rect key="frame" x="205" y="377" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Cqa-Pe-Ff8"/>
@@ -273,6 +281,7 @@
                         <outlet property="like4" destination="tzD-WZ-r7w" id="f11-9z-bH3"/>
                         <outlet property="like5" destination="ft6-4N-eNN" id="XQM-ho-40W"/>
                         <outlet property="nameLabel" destination="ZGm-R5-AN8" id="DGx-xi-x6B"/>
+                        <outlet property="shopLabel" destination="sUv-M4-UyC" id="gle-fr-LaJ"/>
                         <outlet property="sweetnessLabel" destination="w2S-82-xWQ" id="PdC-DT-J4a"/>
                     </connections>
                 </viewController>
