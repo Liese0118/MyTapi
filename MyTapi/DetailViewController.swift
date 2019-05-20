@@ -72,6 +72,7 @@ class DetailViewController: UIViewController {
     @IBAction func deleteButton(){}
     
     var tapiArray: [Tapi]!
+    var TapiDetail: Tapi!
     var number: Int!
     var likeNumber: Int!
     
@@ -79,7 +80,7 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tapiArray = Tapi.loadAll()
+        //tapiArray = Tapi.loadAll()
         setUpDetail()
         like()
         // Do any additional setup after loading the view.
@@ -88,13 +89,23 @@ class DetailViewController: UIViewController {
 extension DetailViewController {
     
     func setUpDetail() {
-        image.image = tapiArray[number].tapiImage
+        /*image.image = tapiArray[number].tapiImage
         nameLabel.text = tapiArray[number].tapiName
         commentLabel.text = tapiArray[number].tapiComment
         sweetnessLabel.text = tapiArray[number].tapiSweetness
         iceLabel.text = tapiArray[number].tapiIce
         shopLabel.text = tapiArray[number].tapiShop
-        likeNumber = tapiArray[number].tapiLike
+        likeNumber = tapiArray[number].tapiLike*/
+        
+        image.image = TapiDetail.tapiImage
+        nameLabel.text = TapiDetail.tapiName
+        commentLabel.text = TapiDetail.tapiComment
+        sweetnessLabel.text = TapiDetail.tapiSweetness
+        iceLabel.text = TapiDetail.tapiIce
+        shopLabel.text = TapiDetail.tapiShop
+        likeNumber = TapiDetail.tapiLike
+        
+        
         
         
     }

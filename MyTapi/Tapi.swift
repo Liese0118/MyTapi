@@ -70,11 +70,12 @@ final class Tapi: Object {
     func save() {
         try! Tapi.realm.write {
             Tapi.realm.add(self)
+            
         }
     }
     
     static func loadAll() -> [Tapi] {
-        let tapis = realm.objects(Tapi.self).sorted(byKeyPath: "id", ascending: true)
+        let tapis = realm.objects(Tapi.self).sorted(byKeyPath: "id", ascending: false)
         var array: [Tapi] = []
         for tapi in tapis {
             array.append(tapi)
